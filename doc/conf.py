@@ -84,7 +84,7 @@ html_theme_options = {
 # settings for version switcher and warning
 html_theme_options["navbar_start"] = ["navbar-logo", "version-switcher"]
 html_theme_options["switcher"] = {
-    "json_url": "https://openmm.github.io/openmm-ml/dev/_static/versions.json",
+    "json_url": "https://jmorado.github.io/openmm-ml/dev/_static/versions.json",
     "version_match": version_match,
 }
 
