@@ -78,6 +78,8 @@ class ANIPotentialImpl(MLPotentialImpl):
             model = torchani.models.ANI1ccx(**_kwarg_dict)
         elif self.name == 'ani2x':
             model = torchani.models.ANI2x(**_kwarg_dict)
+        elif self.name == 'ani1xnr':
+            model = torchani.models.ANI1xnr(**_kwarg_dict)
         else:
             raise ValueError('Unsupported ANI model: '+self.name)
         if modelIndex is not None:

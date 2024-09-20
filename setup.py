@@ -43,6 +43,7 @@ setup(
         'openmmml.potentials': [
             'ani1ccx = openmmml.models.anipotential:ANIPotentialImplFactory',
             'ani2x = openmmml.models.anipotential:ANIPotentialImplFactory',
+            'ani1xnr = openmmml.models.anipotential:ANIPotentialImplFactory',
             'mace = openmmml.models.macepotential:MACEPotentialImplFactory',
             'mace-off23-small = openmmml.models.macepotential:MACEPotentialImplFactory',
             'mace-off23-medium = openmmml.models.macepotential:MACEPotentialImplFactory',
