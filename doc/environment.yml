@@ -10,6 +10,7 @@ dependencies:
     - m2r2
     - GitPython
     - sphinx
+    - sphinx-autoapi
     - setuptools
 
 
