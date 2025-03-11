@@ -43,6 +43,10 @@ jobs:
         run: |
           pip install .
 
+      - name: Install setuptools
+        run: |
+          pip install setuptools
+
       - name: Build Sphinx documentation
         run: |
           cd doc
