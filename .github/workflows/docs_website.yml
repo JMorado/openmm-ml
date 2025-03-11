@@ -31,7 +31,7 @@ jobs:
           environment-file: doc/environment.yml
           auto-activate-base: false
           miniforge-version: latest
-          miniforge-variant: Mambaforge
+          miniforge-variant: Miniforge
           use-mamba: true
 
       - name: Describe environment
