@@ -12,5 +12,6 @@ dependencies:
     - sphinx
     - sphinx-autoapi
     - setuptools
+    - docutils>=0.18.1,<0.21
 
 
