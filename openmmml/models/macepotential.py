@@ -56,7 +56,8 @@ class MACEPotentialImpl(MLPotentialImpl):
     >>> potential = MLPotential('mace-off23-small')
 
     Other available models include 'mace-off23-medium', 'mace-off23-large', 'mace-off24-medium',
-    'mace-mpa-0-medium', 'mace-omat-0-small', 'mace-omat-0-medium', and 'mace-omol-0-extra-large'.
+    'mace-mpa-0-medium', 'mace-omat-0-small', 'mace-omat-0-medium', 'mace-omol-0-extra-large',
+    'mace-polar-1-small', 'mace-polar-1-medium', and 'mace-polar-1-large'.
 
     To use a locally trained MACE model, provide the path to the model file. For example:
 
@@ -98,7 +99,7 @@ class MACEPotentialImpl(MLPotentialImpl):
             The name of the MACE model.
             Options include 'mace-off23-small', 'mace-off23-medium', 'mace-off23-large',
             'mace-off24-medium', 'mace-mpa-0-medium', 'mace-omat-0-small', 'mace-omat-0-medium',
-            'mace-omol-0-extra-large', and 'mace'.
+            'mace-omol-0-extra-large', 'mace-polar-1-small', 'mace-polar-1-medium', and 'mace-polar-1-large'.
         modelPath : str, optional
             The path to the locally trained MACE model if ``name`` is 'mace'.
         """
@@ -138,7 +139,7 @@ class MACEPotentialImpl(MLPotentialImpl):
         import torch
         try:
             from mace.tools import utils, to_one_hot, atomic_numbers_to_indices
-            from mace.calculators.foundations_models import mace_off, mace_mp, mace_omol
+            from mace.calculators.foundations_models import mace_off, mace_mp, mace_omol, mace_polar
         except ImportError as e:
             raise ImportError(f"Failed to import mace with error: {e}. Install mace with 'pip install mace-torch'.")
         try:
@@ -158,7 +159,10 @@ class MACEPotentialImpl(MLPotentialImpl):
             'mace-mpa-0-medium': (mace_mp, 'medium-mpa-0', False),
             'mace-omat-0-small': (mace_mp, 'small-omat-0', True),
             'mace-omat-0-medium': (mace_mp, 'medium-omat-0', True),
-            'mace-omol-0-extra-large': (mace_omol, 'extra_large', True)
+            'mace-omol-0-extra-large': (mace_omol, 'extra_large', True),
+            'mace-polar-1-small': (mace_polar, 'polar-1-s', True),
+            'mace-polar-1-medium': (mace_polar, 'polar-1-m', True),
+            'mace-polar-1-large': (mace_polar, 'polar-1-l', True)
         }
         device = self._getTorchDevice(args)
         if self.name in models:

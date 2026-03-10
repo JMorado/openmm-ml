@@ -1,7 +1,7 @@
 # This script computes reference energies for the MACE foundation models.
 
 import ase.io
-from mace.calculators.foundations_models import mace_off, mace_mp, mace_omol
+from mace.calculators.foundations_models import mace_off, mace_mp, mace_omol, mace_polar
 from openmm.unit import kilojoules_per_mole, ev, item
 
 atoms = ase.io.read('toluene/toluene.pdb')
@@ -25,5 +25,11 @@ results['mace-omol-0-extra-large'] = atoms.get_potential_energy()
 atoms = ase.io.read('alanine-dipeptide/alanine-dipeptide-explicit.pdb')
 atoms.calc = mace_off('small')
 results['alanine-dipeptide'] = atoms.get_potential_energy()
+atoms.calc = mace_polar('polar-1-s')
+results['mace-polar-1-small'] = atoms.get_potential_energy()
+atoms.calc = mace_polar('polar-1-m')
+results['mace-polar-1-medium'] = atoms.get_potential_energy()
+#atoms.calc = mace_polar('polar-1-l')
+#results['mace-polar-1-large'] = atoms.get_potential_energy()
 for key in results:
     print(f'{key}: {(results[key]*ev/item).value_in_unit(kilojoules_per_mole)}')
